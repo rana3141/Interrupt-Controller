@@ -10,9 +10,10 @@ parameter NO_OF_PERIPHERALS = 8;
 //Address width of priority register depending on No of Peripherals
 parameter WIDTH = $clog2(NO_OF_PERIPHERALS);
 
-parameter S_NO_INTERRUPT 	 = 3'b001;
+//One hot encoding - states
+parameter S_NO_INTERRUPT = 3'b001;
 parameter S_ACTIVE_INTERRUPT = 3'b010;
-parameter S_SERVICE_DONE	 = 3'b100;
+parameter S_SERVICE_DONE = 3'b100;
 
 //APB - Master/Processor to IC
 input pclk,preset,penable,pwrite;	
