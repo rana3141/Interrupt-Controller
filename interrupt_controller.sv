@@ -1,6 +1,6 @@
 module interrupt_controller(
 //APB ports
-pclk,preset,paddr,pwdata,prdata,penable,pwrite,pready,pwrite,
+pclk,preset,paddr,pwdata,prdata,penable,pready,pwrite,
 //IC
 interrupt_active,interrupt_to_be_service,interrupt_serviced,interrupt_valid
 );
