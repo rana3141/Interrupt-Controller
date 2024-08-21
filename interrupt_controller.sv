@@ -42,29 +42,29 @@ reg flag;
 // 1 - Modelling Priority Register
 always @(posedge pclk) begin
 	if (preset) begin
-		prdata = 0;
-		pready = 0;
-		state = S_NO_INTERRUPT;
-		next_state = S_NO_INTERRUPT;
-		interrupt_to_be_service = 0;
-		interrupt_valid = 0;
-		flag = 0;
-		highest_priority_peri = 0;
-		highest_priority_value = 0;
-		for (int i=0;i<NO_OF_PERIPHERALS;i++) priority_reg[i] = 0;
+		prdata <= 0;
+		pready <= 0;
+		state <= S_NO_INTERRUPT;
+		next_state <= S_NO_INTERRUPT;
+		interrupt_to_be_service <= 0;
+		interrupt_valid <= 0;
+		flag <= 0;
+		highest_priority_peri <= 0;
+		highest_priority_value <= 0;
+		for (int i=0;i<NO_OF_PERIPHERALS;i++) priority_reg[i] <= 0;
 	end
 	else begin
 		if (penable==1) begin
-			pready = 1;
+			pready <= 1;
 			if (pwrite==1) begin
-				priority_reg[paddr] = pwdata;
+				priority_reg[paddr] <= pwdata;
 			end
 			else begin
-				prdata = priority_reg[paddr];
+				prdata <= priority_reg[paddr];
 			end
 		end
 		else begin
-			pready = 0;
+			pready <= 0;
 		end
 	end
 end
@@ -75,45 +75,45 @@ always @(posedge pclk) begin
 		case (state)
 			S_NO_INTERRUPT: begin
 				if(interrupt_active != 0) begin
-					next_state = S_ACTIVE_INTERRUPT;
-					flag = 1;
+					next_state <= S_ACTIVE_INTERRUPT;
+					flag <= 1;
 				end
 				else begin
-					next_state = S_NO_INTERRUPT;
+					next_state <= S_NO_INTERRUPT;
 				end
 			end
 			S_ACTIVE_INTERRUPT: begin
 				for (int i=0;i<NO_OF_PERIPHERALS;i++) begin
 					if (interrupt_active[i] == 1) begin
 						if (flag) begin
-							highest_priority_value = priority_reg[i];
-							highest_priority_peri = i;
-							flag = 0;
+							highest_priority_value <= priority_reg[i];
+							highest_priority_peri <= i;
+							flag <= 0;
 						end
 						else begin
 							if (priority_reg[i] > highest_priority_value) begin
-								highest_priority_value = priority_reg[i];
-								highest_priority_peri = i;
+								highest_priority_value <= priority_reg[i];
+								highest_priority_peri <= i;
 							end
 						end
 					end
 				end
-				interrupt_valid = 1;
-				interrupt_to_be_service = highest_priority_peri;
-				next_state = S_SERVICE_DONE;
+				interrupt_valid <= 1;
+				interrupt_to_be_service <= highest_priority_peri;
+				next_state <= S_SERVICE_DONE;
 			end
 			S_SERVICE_DONE : begin
 				if (interrupt_serviced) begin
-					interrupt_valid = 0;
-					interrupt_to_be_service = 0;
-					highest_priority_peri = 0;
-					highest_priority_value = 0;
+					interrupt_valid <= 0;
+					interrupt_to_be_service <= 0;
+					highest_priority_peri <= 0;
+					highest_priority_value <= 0;
 					if (interrupt_active != 0) begin
-						next_state = S_ACTIVE_INTERRUPT;
-						flag = 1;
+						next_state <= S_ACTIVE_INTERRUPT;
+						flag <= 1;
 					end
 					else begin
-						next_state = S_NO_INTERRUPT;
+						next_state <= S_NO_INTERRUPT;
 					end
 				end
 			end
