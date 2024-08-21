@@ -20,7 +20,7 @@ wire [WIDTH-1:0] interrupt_to_be_service;
 wire interrupt_valid;
 
 interrupt_controller #(.NO_OF_PERIPHERALS(NO_OF_PERIPHERALS), .WIDTH(WIDTH)) dut (
-pclk,preset,paddr,pwdata,prdata,penable,pwrite,pready,pwrite,interrupt_active,interrupt_to_be_service,interrupt_serviced,interrupt_valid);
+pclk,preset,paddr,pwdata,prdata,penable,pready,pwrite,interrupt_active,interrupt_to_be_service,interrupt_serviced,interrupt_valid);
 
 always #5 pclk = ~pclk;
 
