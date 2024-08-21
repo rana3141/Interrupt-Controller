@@ -122,7 +122,7 @@ always @(posedge pclk) begin
 end
 
 always @(posedge pclk) begin
-	state = next_state;
+	state <= next_state;
 end
 
 endmodule
