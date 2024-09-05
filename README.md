@@ -6,6 +6,7 @@ Two Interfaces
 1. APB - towards Processor
 3. Peripheral 
 
+
 Ports of IC:
 
 1. Common
@@ -30,6 +31,7 @@ Operation:
 2. Interrupt is raised by the peripherals - interrupt_active
 3. According to the highest priority, peripheral number is given to the processor - interrupt_to_be_service & interrupt_valid
 4. After servicing the interrupt the processor sends an acknowledgement to the IC - interrupt_serviced
+
 
 Two Always block in RTL:
 1. Modelling priority register
