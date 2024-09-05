@@ -26,7 +26,7 @@ Ports of IC:
 ![image](https://github.com/user-attachments/assets/512cd644-d509-4131-a937-10231081f5de)
 
 
-Operation:
+Operation steps:
 1. Processor assigns priority to interrupts in Priority registers - APB interface
 2. Interrupt is raised by the peripherals - interrupt_active
 3. According to the highest priority, peripheral number is given to the processor - interrupt_to_be_service & interrupt_valid
