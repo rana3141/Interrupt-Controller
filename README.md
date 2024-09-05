@@ -12,12 +12,12 @@ Ports of IC:
 	input clk, reset
 
 2. APB - Between Processor & IC - To communicate with priority registers
-	input pwrite  - Write/read enable
-	input paddr   - Address to assign priority in priority registers
-	input pwdata  - Priority value
-	input penable - When enabled only then valid write/read transactions
-	output pready - Acknowledgement that transaction successful
-	output prdata - Not Needed as we are not reading anything
+a. input pwrite  - Write/read enable
+b. input paddr   - Address to assign priority in priority registers
+c. input pwdata  - Priority value
+d. input penable - When enabled only then valid write/read transactions
+e. output pready - Acknowledgement that transaction successful
+f. output prdata - Not Needed as we are not reading anything
 
 3. Peripherals to IC
 	input interrupt_active - peripherals that want to raise an interrput
