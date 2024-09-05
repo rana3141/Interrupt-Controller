@@ -4,25 +4,22 @@ Interrupt Controller
 
 Two Interfaces
 1. APB - towards Processor
-2. Peripheral 
+3. Peripheral 
 
 Ports of IC:
 
 1. Common
-	input clk, reset
+
+![image](https://github.com/user-attachments/assets/49f89a08-df78-4163-8d79-0a0f0da5b485)
 
 2. APB - Between Processor & IC - To communicate with priority registers
-a. input pwrite  - Write/read enable
-b. input paddr   - Address to assign priority in priority registers
-c. input pwdata  - Priority value
-d. input penable - When enabled only then valid write/read transactions
-e. output pready - Acknowledgement that transaction successful
-f. output prdata - Not Needed as we are not reading anything
 
-3. Peripherals to IC
+![image](https://github.com/user-attachments/assets/61cb5dfd-02a2-4f33-8da1-cc31f54d99e1)
+
+4. Peripherals to IC
 	input interrupt_active - peripherals that want to raise an interrput
 
-4. Processor & IC
+5. Processor & IC
 	input interrupt_serviced - acknowledgement from processor that interrupt has been serviced
 	output interrupt_to_be_service - highest priority interrupt is provided to processor
 	input interrupt_valid
