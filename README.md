@@ -1,4 +1,4 @@
-# Interrupt-Controller
+# Interrupt-Controller RTL
 
 An Interrupt Controller is a hardware component that manages and prioritizes interrupt requests (IRQs) from different peripheral devices or internal components in a computer or embedded system. Its primary function is to allow the CPU to handle interrupts efficiently, ensuring that higher-priority interrupts are processed first while lower-priority interrupts are delayed.
 
