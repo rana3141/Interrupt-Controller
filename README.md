@@ -1,13 +1,18 @@
 # Interrupt-Controller
 
-Interrupt Controller
+An Interrupt Controller is a hardware component that manages and prioritizes interrupt requests (IRQs) from different peripheral devices or internal components in a computer or embedded system. Its primary function is to allow the CPU to handle interrupts efficiently, ensuring that higher-priority interrupts are processed first while lower-priority interrupts are delayed.
 
-Two Interfaces
-1. APB - towards Processor
-3. Peripheral 
+Block Diagram:
+
+![Interrupt_controller_block_diag drawio](https://github.com/user-attachments/assets/325d625c-ebe3-4234-a59b-af3a07c47b48)
 
 
-Ports of IC:
+Two Interfaces:
+1. APB Interface - towards Processor
+3. Peripheral Interface
+
+
+Ports of Interrupt Controller:
 
 1. Common
 
